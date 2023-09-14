@@ -92,3 +92,43 @@ tbody td {
   font-weight: bold;
   border: 2px solid black;
 }
+
+/* Adicione a seguinte consulta de mídia para telas de até 992px de largura */
+
+@media screen and (max-width: 992px) {
+  section#dados {
+    width: 80%; /* Reduz a largura para 80% da tela */
+    font-size: 14px; /* Reduz o tamanho da fonte para melhor ajuste */
+  }
+  
+  /* Ajuste o espaçamento e o tamanho dos inputs e botões conforme necessário */
+  label,
+  input {
+    padding: 5px;
+    margin: 3px;
+  }
+
+  input[type=button] {
+    width: 50%; /* Reduz a largura dos botões */
+  }
+}
+
+/* Adicione a seguinte consulta de mídia para telas de até 600px de largura (iPhone XR) */
+
+@media screen and (max-width: 600px) {
+  section#dados {
+    width: 100%; /* Reduz a largura para 100% da tela */
+    font-size: 12px; /* Reduz o tamanho da fonte ainda mais para telas pequenas */
+  }
+  
+  /* Ajuste o espaçamento e o tamanho dos inputs e botões conforme necessário */
+  label,
+  input {
+    padding: 3px;
+    margin: 2px;
+  }
+
+  input[type=button] {
+    width: 80%; /* Reduz ainda mais a largura dos botões */
+  }
+}
