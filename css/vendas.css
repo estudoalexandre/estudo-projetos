@@ -97,7 +97,7 @@ tbody td {
 
 @media screen and (max-width: 992px) {
   section#dados {
-    width: 80%; /* Reduz a largura para 80% da tela */
+    width: 100%; /* Reduz a largura para 80% da tela */
     font-size: 14px; /* Reduz o tamanho da fonte para melhor ajuste */
   }
   
@@ -109,19 +109,19 @@ tbody td {
   }
 
   input[type=button] {
-    width: 50%; /* Reduz a largura dos botões */
+    width: 80%; /* Reduz a largura dos botões */
   }
 }
 
-/* Adicione a seguinte consulta de mídia para telas de até 600px de largura (iPhone XR) */
+/* Teste (iPhone XR) */
 
 @media screen and (max-width: 600px) {
   section#dados {
-    width: 100%; /* Reduz a largura para 100% da tela */
-    font-size: 12px; /* Reduz o tamanho da fonte ainda mais para telas pequenas */
+    width: 100%;
+    font-size: 12px; 
   }
   
-  /* Ajuste o espaçamento e o tamanho dos inputs e botões conforme necessário */
+  /* espaçamento e o tamanho dos inputs e botões */
   label,
   input {
     padding: 3px;
@@ -129,6 +129,6 @@ tbody td {
   }
 
   input[type=button] {
-    width: 80%; /* Reduz ainda mais a largura dos botões */
+    width: 60%; 
   }
 }
