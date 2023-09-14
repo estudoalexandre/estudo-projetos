@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fugaz+One&display=swap');
+
+
+
+body {
+  text-align: center;
+
+}
+
+/* ABAIXO SÃO OS ESTILOS DOS INPUTS */
+
+section#dados {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  font-family: 'Fugaz One', cursive;
+  background-color: aliceblue;
+  width: 50%;
+  text-align: center;
+
+}
+
+label,
+input {
+  padding: 10px;
+  margin: 3px;
+}
+
+#credito {
+  padding-right: 0;
+}
+
+input#dinheiro {
+  margin-left: 70px;
+}
+
+input#credito {
+  margin-right: 15px;
+  padding-right: 7px;
+}
+
+input#pix {
+  margin-left: 114px;
+}
+
+input#ticket {
+  margin-left: 75px;
+}
+
+input[type=button] {
+  color: white;
+  background-image: linear-gradient(to top, #6da2f9, #344799);
+  width: 40%;
+}
+
+input[type=button]:hover {
+  background: blue;
+  color: red;
+}
+
+/* --------------------------------------------------------------
+         ESTILOS DA TABELA
+  */
+
+
+#tabelaSection {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background-color: aliceblue;
+  text-align: center;
+  background-color: #f3f3f3;
+  width: 50%;
+}
+
+table{
+  margin: auto;
+}
+
+dt {
+  border: 1px solid black;
+  padding: 10px;
+  box-shadow: 1px 1px black;
+  font-size: 1.5rem;
+}
+
+tbody td {
+  font-size: 1.6rem;
+  font-weight: bold;
+  border: 2px solid black;
+}

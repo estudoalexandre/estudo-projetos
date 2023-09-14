@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TESTE</title>
+</head>
+<link rel="stylesheet" href="../css/vendas.css">
+<script src="../javascript/teste3.js"></script>
+
+<body>
+
+
+    <section id="dados">
+        
+    <head>
+        <h1>Coloque aqui suas Vendas!</h1>
+    </head>
+
+    <div id="res">
+
+            <div>
+            <label for="dinheiro"> Dinheiro</label>
+            <input type="number" id="dinheiro">
+            </div>
+
+            <div>
+            <label for="debito"> Cartão de Debito</label>
+            <input type="number" id="debito">
+            </div>
+
+            <div>
+                <label for="credito"> Cartão de Credito</label>
+                <input type="number" id="credito">
+            </div>
+
+            <div>
+                <label for="pix"> Pix</label>
+                <input type="number" id="pix">
+            </div>
+            <div>
+                <label for="ticket"> Tickets</label>
+                <input type="number" id="ticket">
+            </div>
+            <div>
+                <input type="button" value="Verificar Vendas" onclick="upTable()">
+            </div>
+            <!-- PARA TESTAR O SCRIPT -->
+            <div id="resultado">
+
+            </div>
+    </div>
+    </section>
+
+
+    <section id="tabelaSection" onclick="somaNumeros()">
+        <head>
+            <h1>Seu comparativo de vendas do Dia! </h1>
+        </head>
+        <table id="tabela">
+            <thead>
+                <tr>
+                    <th id="table-01">
+                        Categoria
+                        <dt>Dinheiro</dt>
+                        <dt>Credito</dt>
+                        <dt>Debito</dt>
+                        <dt>Pix</dt>
+                        <dt>Tickets</dt>
+                    </th>
+
+                    <th id="table-02">Valor
+
+                    </th>
+                    <th id="table-03">Porc</th>
+                    <th id="table-04">Status</th>
+                </tr>
+                <tbody id="resTable-2">
+                    <td>Total</td>
+                    <td id="resTable">
+
+                    </td>
+                </tbody>
+            </thead>
+
+
+
+
+        </table>
+    </section>
+</body>
+</html>
