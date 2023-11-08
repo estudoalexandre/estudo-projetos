@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Calculadora de TMB</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-5">
+                <h1 class="text-center">Calculadora de TMB</h1>
+                <form>
+                    <div class="mb-3">
+                        <label for="nome" class="form-label">Nome:</label>
+                        <input type="text" class="form-control" name="nome" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="sexo" class="form-label">Sexo:</label>
+                        <select class="form-select" name="sexo" required>
+                            <option value="homem" class="sexo-option">Homem</option>
+                            <option value="mulher" class="sexo-option">Mulher</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="altura" class="form-label">Altura (cm):</label>
+                        <input type="number" class="form-control" name="altura" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="idade" class="form-label">Idade:</label>
+                        <input type="number" class="form-control" name="idade" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="peso" class="form-label">Peso:</label>
+                        <input type="number" class="form-control" name="peso" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="nivelAtividade" class="form-label">Nível de Atividade:</label>
+                        <select class="form-select" name="nivelAtividade" required>
+                            <option value="sedentario" class="nivel-atividade-option">Sedentário</option>
+                            <option value="leve" class="nivel-atividade-option">Levemente Ativo</option>
+                            <option value="moderado" class="nivel-atividade-option">Moderadamente Ativo</option>
+                            <option value="ativo" class="nivel-atividade-option">Altamente Ativo</option>
+                            <option value="extremamente" class="nivel-atividade-option">Extremamente Ativo</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <button type="button" class="btn btn-primary">Calcular TMB</button>
+                    </div>
+                </form>
+                <div class="resultado">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/tmb.js"></script>
+</body>
+
+</html>
