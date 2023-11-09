@@ -1,6 +1,13 @@
 
 const CalculadoraTMB = {
-    calcularTMB: function (altura, peso, idade) {
+    nivelAtividadeFatores: {
+        sedentarismo: 1.2,
+        leve: 1.375,
+        moderado: 1.55,
+        ativo: 1.725,
+        extremamente: 1.9
+    },
+    calcularTMB: function (altura, peso, idade, nivelAtividade) {
         let total;
 
         peso = 66 + (13.7 * peso);
