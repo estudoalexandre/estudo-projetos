@@ -7,7 +7,7 @@ const CalculadoraTMB = {
         ativo: 1.725,
         extremamente: 1.9
     },
-    calcularTMB: function (altura, peso, idade, nivelAtividade) {
+    calcularTMBMan: function (altura, peso, idade, nivelAtividade) {
         let total;
 
         peso = 66 + (13.7 * peso);
@@ -16,31 +16,59 @@ const CalculadoraTMB = {
 
         total = peso + altura - idade;
 
-        const fatorNivelAtividade = this.nivelAtividadeFatores[nivelAtividade];
+        const fatorNivelAtividade = this.fatorNivelAtividade(nivelAtividade);
 
-        if(fatorNivelAtividade){
+        if (fatorNivelAtividade) {
             return total * fatorNivelAtividade;
         }
 
         return total;
+    },
+
+    calcularTMBWoman: function (altura, peso, idade, nivelAtividade) {
+        let total;
+
+        altura = 3.098 * altura
+        peso = 447.593 + (9.247 * peso)
+        idade = 4.330 * idade
+
+        total = peso + altura - idade;
+
+        const fatorNivelAtividade = this.fatorNivelAtividade(nivelAtividade);
+
+        if(fatorNivelAtividade){
+            return total * fatorNivelAtividade
+        }
+
+        return total;
+        
+    },
+    fatorNivelAtividade: function (nivelAtividade){
+        return this.nivelAtividadeFatores[nivelAtividade];
     }
 };
 
 const nome = document.querySelector('.form-control[name="nome"]');
 const botaoCalcular = document.querySelector('.btn.btn-primary');
-const sexo = document.querySelector('.form-select[name="sexo"]');
 
-botaoCalcular.addEventListener('click',function() {
-    const nivelAtividade = document.querySelector('.form-select[name="nivelAtividade"]');
+botaoCalcular.addEventListener('click', function () {
+    const sexoSelecionado = document.querySelector('.form-select[name="sexo"]').value;
+    const nivelAtividade = document.querySelector('.form-select[name="nivelAtividade"]').value;
     const altura = parseFloat(document.querySelector('.form-control[name="altura"]').value);
     const peso = parseFloat(document.querySelector('.form-control[name="peso"]').value);
     const idade = parseFloat(document.querySelector('.form-control[name="idade"]').value);
     const displayResultado = document.querySelector('.resultado');
 
+    let resultado;
 
-    const resultado = CalculadoraTMB.calcularTMB(altura, peso, idade, nivelAtividade);
+    if(sexoSelecionado === "homem"){
+        resultado = CalculadoraTMB.calcularTMBMan(altura, peso, idade, nivelAtividade);
+    } else {
+        resultado = CalculadoraTMB.calcularTMBWoman(altura, peso, idade, nivelAtividade);
+    }
 
-    return displayResultado.innerHTML = resultado;
+    displayResultado.innerHTML = resultado;
+
 });
 
 
