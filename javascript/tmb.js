@@ -16,7 +16,11 @@ const CalculadoraTMB = {
 
         total = peso + altura - idade;
 
-        return total;
+        const fatorNivelAtividade = this.nivelAtividadeFatores[nivelAtividade];
+
+        if(fatorNivelAtividade){
+            return total * fatorNivelAtividade;
+        }
     }
 };
 
