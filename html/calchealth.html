@@ -14,10 +14,10 @@
             <div class="col-5">
                 <h1 class="text-center">Calculadora de TMB</h1>
                 <form>
-                    <div class="mb-3">
+                    <!-- <div class="mb-3">
                         <label for="nome" class="form-label">Nome:</label>
                         <input type="text" class="form-control" name="nome" required>
-                    </div>
+                    </div> -->
                     <div class="mb-3">
                         <label for="sexo" class="form-label">Sexo:</label>
                         <select class="form-select" name="sexo" required>
@@ -39,20 +39,21 @@
                     </div>
                     <div class="mb-3">
                         <label for="nivelAtividade" class="form-label">Nível de Atividade:</label>
-                        <select class="form-select" name="nivelAtividade" required>
-                            <option value="sedentario" class="nivel-atividade-option">Sedentário</option>
-                            <option value="leve" class="nivel-atividade-option">Levemente Ativo</option>
-                            <option value="moderado" class="nivel-atividade-option">Moderadamente Ativo</option>
-                            <option value="ativo" class="nivel-atividade-option">Altamente Ativo</option>
-                            <option value="extremamente" class="nivel-atividade-option">Extremamente Ativo</option>
-                        </select>
+                        <select class="form-select" name="nivelAtividade" class="nivel-atividade" required>
+                            <option value="sedentario" data-fator="1.2">Sedentário</option>
+                            <option value="leve" data-fator="1.375">Levemente Ativo</option>
+                            <option value="moderado" data-fator="1.55">Moderadamente Ativo</option>
+                            <option value="ativo" data-fator="1.725">Altamente Ativo</option>
+                            <option value="extremamente" data-fator="1.9">Extremamente Ativo</option>
+                          </select>
+                          
                     </div>
                     <div class="mb-3">
-                        <label for="nivelAtividade" class="form-label">Objetivo:</label>
-                        <select class="form-select" name="nivelAtividade" required>
-                            <option value="perder" class="nivel-atividade-option">Perder Peso</option>
-                            <option value="manter" class="nivel-atividade-option">Manter Peso</option>
-                            <option value="ganhar" class="nivel-atividade-option">Ganhar Peso</option>
+                        <label for="objetivo" class="form-label">Objetivo:</label>
+                        <select class="form-select" name="objetivo" required>
+                            <option value="perder" class="objetivo-option">Perder Peso</option>
+                            <option value="manter" class="objetivo-option">Manter Peso</option>
+                            <option value="ganhar" class="objetivo-option">Ganhar Peso</option>
                         </select>
                     </div>
                     <div class="mb-3">
