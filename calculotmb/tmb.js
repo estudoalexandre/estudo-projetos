@@ -6,7 +6,6 @@ const CalculadoraTMB = {
 
         return peso + altura - idade;
     },
-
     calcularTMBWoman: function (altura, peso, idade) {
         altura = 3.098 * altura;
         peso = 447.593 + (9.247 * peso);
@@ -26,11 +25,16 @@ const CalculadoraTMB = {
         const imgResult = document.createElement('img');
         imgResult.src = src;
         imgResult.classList.add('imgResult');
+        imgResult.style.height = '600px'
+        imgResult.style.width = '800px'
         resultadoImg.appendChild(imgResult);
     },
     limparResultados: function(){
         const resultadoDiv = document.querySelector('.resultado');
+        const resultadoImg = document.querySelector('.img-results');
         resultadoDiv.innerHTML = '';
+        resultadoImg.innerHTML = '';
+        
     },
     calcular: function(){
         this.limparResultados();
@@ -59,10 +63,11 @@ const CalculadoraTMB = {
         if (objetivoSelecionado === "perder") {
             TMBComNivelAtividade -= 500 
             this.adicionarParagrafo(`Olá ${nomeUsuario} Se voce deseja <u>perder peso</u> consuma: ${TMBComNivelAtividade.toFixed(2)} calorias por dia `);
-            this.adicionarImagem(``)
+            this.adicionarImagem(`./images/weightloss.png`);
         } else if (objetivoSelecionado === "ganhar") {
             TMBComNivelAtividade += 500;
-            this.adicionarParagrafo(`Olá ${nomeUsuario} Se voce deseja <u>Ganhar Peso</u> consuma: ${TMBComNivelAtividade.toFixed(2)} calorias por dia `)
+            this.adicionarParagrafo(`Olá ${nomeUsuario} Se voce deseja <u>Ganhar Peso</u> consuma: ${TMBComNivelAtividade.toFixed(2)} calorias por dia `);
+            this.adicionarImagem(`./images/gainmass.png`);
         }
 
         this.adicionarParagrafo(`TMB: Aqui é quantas calorias seu corpo consome por dia: ${tmbSemObjetivoDefinido.toFixed(2)}`);
@@ -73,9 +78,18 @@ const CalculadoraTMB = {
 const botaoCalcular = document.querySelector('.btn.btn-primary');
 
 botaoCalcular.addEventListener('click', function () {
-    const formulario = document.querySelector('form');
 
 CalculadoraTMB.calcular();
+
+});
+
+botaoCalcular.addEventListener('keydown', function (btn) {
+    
+    const formulario = document.querySelector('form');
+    if(btn.keyCode === "013") {
+
+        CalculadoraTMB.calcular();
+    }
 
 formulario.focus();
 
