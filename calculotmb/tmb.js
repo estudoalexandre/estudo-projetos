@@ -21,6 +21,13 @@ const CalculadoraTMB = {
         paragrafo.classList.add('tbm-result');
         resultadoDiv.appendChild(paragrafo);
     },
+    adicionarImagem: function(src){
+        const resultadoImg = document.querySelector('.img-results');
+        const imgResult = document.createElement('img');
+        imgResult.src = src;
+        imgResult.classList.add('imgResult');
+        resultadoImg.appendChild(imgResult);
+    },
     limparResultados: function(){
         const resultadoDiv = document.querySelector('.resultado');
         resultadoDiv.innerHTML = '';
@@ -51,7 +58,8 @@ const CalculadoraTMB = {
         
         if (objetivoSelecionado === "perder") {
             TMBComNivelAtividade -= 500 
-            this.adicionarParagrafo(`Olá ${nomeUsuario} Se voce deseja <u>perder peso</u> consuma: ${TMBComNivelAtividade.toFixed(2)} calorias por dia `)
+            this.adicionarParagrafo(`Olá ${nomeUsuario} Se voce deseja <u>perder peso</u> consuma: ${TMBComNivelAtividade.toFixed(2)} calorias por dia `);
+            this.adicionarImagem(``)
         } else if (objetivoSelecionado === "ganhar") {
             TMBComNivelAtividade += 500;
             this.adicionarParagrafo(`Olá ${nomeUsuario} Se voce deseja <u>Ganhar Peso</u> consuma: ${TMBComNivelAtividade.toFixed(2)} calorias por dia `)
