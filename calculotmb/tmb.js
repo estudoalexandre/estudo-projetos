@@ -20,23 +20,48 @@ const CalculadoraTMB = {
         paragrafo.classList.add('tbm-result');
         resultadoDiv.appendChild(paragrafo);
     },
-    adicionarImagem: function(src){
+    adicionarImagem: function (src, height, width, isVideo, sexo, objetivo) {
         const resultadoImg = document.querySelector('.img-results');
-        const imgResult = document.createElement('img');
-        imgResult.src = src;
-        imgResult.classList.add('imgResult');
-        imgResult.style.height = '600px'
-        imgResult.style.width = '800px'
-        resultadoImg.appendChild(imgResult);
+
+        if (isVideo) {
+            const videoResult = document.createElement('video');
+            videoResult.src = (sexo === 'mulher' && objetivo === 'perder') ? `./images/weightlossm.mp4` :
+                              (sexo === 'mulher' && objetivo === 'ganhar') ? `./images/gainM.mp4`:
+                              (sexo === 'homem' && objetivo === 'perder') ? `./images/esteira.mp4`:
+                              (sexo === 'homem' && objetivo === 'ganhar') ? `./images/gain.mp4`:
+
+            videoResult.classList.add('videoResult');
+            videoResult.setAttribute('height', height);
+            videoResult.setAttribute('width', width);
+            videoResult.setAttribute('autoplay', true);
+            videoResult.setAttribute('muted', true);
+            videoResult.setAttribute('loop', true);
+            // videoResult.setAttribute('controls', false);
+
+            resultadoImg.appendChild(videoResult);
+        } else {
+
+            const imgResult = document.createElement('img');
+            imgResult.src = (sexo === 'mulher' && objetivo === 'perder') ? `./images/weightlossm.mp4` :
+                            (sexo === 'mulher' && objetivo === 'ganhar') ? `./images/gainM.mp4`:
+                            (sexo === 'homem' && objetivo === 'perder') ? `./images/esteira.mp4`:
+                            (sexo === 'homem' && objetivo === 'ganhar') ? `./images/gain.mp4`:
+
+            imgResult.classList.add('imgResult');
+            imgResult.style.height = height + 'px';
+            imgResult.style.width = width + 'px';
+            resultadoImg.appendChild(imgResult);
+        
+    }
     },
-    limparResultados: function(){
+    limparResultados: function () {
         const resultadoDiv = document.querySelector('.resultado');
         const resultadoImg = document.querySelector('.img-results');
         resultadoDiv.innerHTML = '';
         resultadoImg.innerHTML = '';
-        
+
     },
-    calcular: function(){
+    calcular: function () {
         this.limparResultados();
 
         const altura = parseFloat(document.querySelector('.form-control[name="altura"]').value);
@@ -45,29 +70,29 @@ const CalculadoraTMB = {
         const nivelAtividadeSelect = document.querySelector('.form-select[name="nivelAtividade"]');
         const fatorNivelAtividade = parseFloat(nivelAtividadeSelect.options[nivelAtividadeSelect.selectedIndex].getAttribute('data-fator'));
         const nomeUsuario = document.getElementById('nome').value;
-        
+
         const sexoSelecionado = document.querySelector('.form-select[name="sexo"]').value;
         const objetivoSelecionado = document.querySelector('.form-select[name="objetivo"]').value;
-        
+
         let resultado;
-        
+
         if (sexoSelecionado === "homem") {
             resultado = CalculadoraTMB.calcularTMBMan(altura, peso, idade);
         } else if (sexoSelecionado === "mulher") {
             resultado = CalculadoraTMB.calcularTMBWoman(altura, peso, idade);
         }
-        
+
         const tmbSemObjetivoDefinido = resultado * fatorNivelAtividade
         let TMBComNivelAtividade = resultado * fatorNivelAtividade;
-        
+
         if (objetivoSelecionado === "perder") {
-            TMBComNivelAtividade -= 500 
+            TMBComNivelAtividade -= 500
             this.adicionarParagrafo(`Olá ${nomeUsuario} Se voce deseja <u>perder peso</u> consuma: ${TMBComNivelAtividade.toFixed(2)} calorias por dia `);
-            this.adicionarImagem(`./images/weightloss.png`);
+            this.adicionarImagem(`./images/esteira.mp4`, 600, 600, true, sexoSelecionado, objetivoSelecionado);
         } else if (objetivoSelecionado === "ganhar") {
             TMBComNivelAtividade += 500;
             this.adicionarParagrafo(`Olá ${nomeUsuario} Se voce deseja <u>Ganhar Peso</u> consuma: ${TMBComNivelAtividade.toFixed(2)} calorias por dia `);
-            this.adicionarImagem(`./images/gainmass.png`);
+            this.adicionarImagem(`./images/gain.mp4`, 400, 150, true, sexoSelecionado, objetivoSelecionado);
         }
 
         this.adicionarParagrafo(`TMB: Aqui é quantas calorias seu corpo consome por dia: ${tmbSemObjetivoDefinido.toFixed(2)}`);
@@ -78,19 +103,24 @@ const CalculadoraTMB = {
 const botaoCalcular = document.querySelector('.btn.btn-primary');
 
 botaoCalcular.addEventListener('click', function () {
+    const teste = document.querySelector('.dicas');
 
-CalculadoraTMB.calcular();
+    const testeDicas = document.createElement('div');
+    testeDicas.innerHTML = 'AQUI EU FIZ UM TESTE';
+    teste.appendChild(testeDicas);
+
+    CalculadoraTMB.calcular();
 
 });
 
 botaoCalcular.addEventListener('keydown', function (btn) {
-    
+
     const formulario = document.querySelector('form');
-    if(btn.keyCode === "013") {
+    if (btn.keyCode === "013") {
 
         CalculadoraTMB.calcular();
     }
 
-formulario.focus();
+    formulario.focus();
 
 });
